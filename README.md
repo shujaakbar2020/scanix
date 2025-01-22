@@ -10,7 +10,7 @@
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/shujaakbar2020/scanix/release.yml?branch=main)](https://github.com/shujaakbar2020/scanix/actions)
 [![Crates.io](https://img.shields.io/crates/v/scanix.svg)](https://crates.io/crates/scanix)
-[![Docs.rs](https://docs.rs/myrustapp/badge.svg)](https://docs.rs/scanix)
+[![Docs.rs](https://docs.rs/scanix/badge.svg)](https://docs.rs/scanix)
 
 ---
 
