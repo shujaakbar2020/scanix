@@ -28,6 +28,7 @@ jobs:
       - name: Update Cargo.toml Version
         id: update_version
         run: |
+          export NEW_VERSION=git describe --tags $(git rev-list --tags --max-count=1)
           sed -i "s/^version = \".*\"/version = \"$NEW_VERSION\"/" Cargo.toml
           cat Cargo.toml
         env:
@@ -38,7 +39,7 @@ jobs:
           git config user.name ${{ secrets.GIT_USER }}
           git config user.email ${{ secrets.GIT_EMAIL_ADDR }}
           git add Cargo.toml
-          git commit -m "chore(release): update version to ${{ env.NEW_VERSION }}"
+          git commit -m "update version to ${{ env.NEW_VERSION }}"
           git push origin main
 
   # publish-crate:
