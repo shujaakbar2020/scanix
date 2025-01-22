@@ -42,6 +42,8 @@ jobs:
           git add Cargo.toml
           git commit -m "update version to ${{ env.NEW_VERSION }}"
           git push origin main
+        env:
+          NEW_VERSION: ${{ env.NEW_VERSION }}
 
       - name: Set up Rust
         uses: actions-rs/toolchain@v1
