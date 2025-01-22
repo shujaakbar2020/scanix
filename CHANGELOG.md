@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.3 (2025-01-22)
+
+### Bug Fixes
+
+- Release pipeline issue resolved
+  ([`04db9fd`](https://github.com/shujaakbar2020/scanix/commit/04db9fdcca6317b0501f8153c54cd4849f98c9cd))
+
+
 ## v0.1.2 (2025-01-22)
 
 ### Bug Fixes
