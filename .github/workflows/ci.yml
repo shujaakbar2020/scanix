@@ -1,0 +1,80 @@
+name: Release Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  semantic-release:
+    name: Semantic Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Run Semantic Release
+        id: semantic_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_ACTIONS_SECRET }}
+        run: |
+          npx semantic-release
+          # Extract the new version from semantic-release output
+          echo "NEW_VERSION=$(npx semantic-release --dry-run | grep 'The next release version is' | awk '{print $NF}')" >> $GITHUB_ENV
+
+  #     - name: Update Cargo.toml Version
+  #       id: update_version
+  #       run: |
+  #         sed -i "s/^version = \".*\"/version = \"$NEW_VERSION\"/" Cargo.toml
+  #         cat Cargo.toml
+  #       env:
+  #         NEW_VERSION: ${{ env.NEW_VERSION }}
+
+  #     - name: Commit Updated Cargo.toml
+  #       run: |
+  #         git config user.name "GitHub Actions"
+  #         git config user.email "actions@github.com"
+  #         git add Cargo.toml
+  #         git commit -m "chore(release): update version to ${{ env.NEW_VERSION }}"
+  #         git push origin main
+
+  # publish-crate:
+  #   name: Publish Crate to crates.io
+  #   runs-on: ubuntu-latest
+  #   needs: semantic-release
+  #   steps:
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v3
+
+  #     - name: Set up Rust
+  #       uses: actions-rs/toolchain@v1
+  #       with:
+  #         toolchain: stable
+  #         override: true
+
+  #     - name: Publish Crate
+  #       env:
+  #         CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+  #       run: cargo publish --token $CARGO_REGISTRY_TOKEN
+
+  # publish-docs:
+  #   name: Publish Documentation to docs.rs
+  #   runs-on: ubuntu-latest
+  #   needs: publish-crate
+  #   steps:
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v3
+
+  #     - name: Set up Rust
+  #       uses: actions-rs/toolchain@v1
+  #       with:
+  #         toolchain: stable
+  #         override: true
+
+  #     - name: Build Documentation
+  #       run: cargo doc --no-deps
