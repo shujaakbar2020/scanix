@@ -1,6 +1,9 @@
 # CHANGELOG
 
 
+## v0.1.1 (2025-01-22)
+
+
 ## v0.1.0 (2025-01-22)
 
 ### Bug Fixes
@@ -25,6 +28,9 @@
 
 - Updated Cargo.toml
   ([`951db56`](https://github.com/shujaakbar2020/scanix/commit/951db56f17a47b3b1b9cc44acd023ba4da5dcfe1))
+
+- Updated on release
+  ([`a944793`](https://github.com/shujaakbar2020/scanix/commit/a944793eddba8011771bcfa7404ed06e4ee02434))
 
 - Updated README.md
   ([`359d450`](https://github.com/shujaakbar2020/scanix/commit/359d4509a7a1583a73e91891655b7b8cddc8c3b5))
