@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.1.2 (2025-01-22)
+
+### Bug Fixes
+
+- Working on release issue
+  ([`1be9807`](https://github.com/shujaakbar2020/scanix/commit/1be9807785301d0b5f2f25b2d8a4dfc4dba74fd0))
+
+### Chores
+
+- **release**: Update version to
+  ([`c0b9bca`](https://github.com/shujaakbar2020/scanix/commit/c0b9bca08f35134e4b79afd375ae5850ba5d9ef7))
+
+
 ## v0.1.1 (2025-01-22)
 
 
