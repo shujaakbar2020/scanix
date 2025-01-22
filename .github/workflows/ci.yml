@@ -18,7 +18,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
-        fetch-depth: 0
+          fetch-depth: 0
 
       - name: Python Semantic Release
         uses: python-semantic-release/python-semantic-release@master
