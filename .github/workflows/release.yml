@@ -28,7 +28,7 @@ jobs:
         run: semantic-release-cargo prepare ${{ needs.get-next-version.outputs.new-release-version }}
 
       - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@master
+        uses: dtolnay/rust-toolchain
 
       - name: Cargo build
         run: cargo build --release --target=x86_64-unknown-linux-gnu --all-targets
