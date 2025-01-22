@@ -32,13 +32,15 @@ jobs:
           NEW_VERSION=${NEW_VERSION#v}
           sed -i "s/^version = \".*\"/version = \"$NEW_VERSION\"/" Cargo.toml
           cat Cargo.toml
+        env:
+          NEW_VERSION: $NEW_VERSION
 
       - name: Commit Updated Cargo.toml
         run: |
           git config user.name ${{ secrets.GIT_USER }}
           git config user.email ${{ secrets.GIT_EMAIL_ADDR }}
           git add Cargo.toml
-          git commit -m "update version to ${ NEW_VERSION }"
+          git commit -m "update version to ${{ env.NEW_VERSION }}"
           git push origin main
 
       - name: Set up Rust
