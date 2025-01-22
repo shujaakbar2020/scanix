@@ -1,37 +1,37 @@
-name: Continous Integration
+# name: Continous Integration
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  release:
-    runs-on: ubuntu-latest
-    concurrency: release
-    permissions:
-      id-token: write
-      contents: write
+# jobs:
+#   release:
+#     runs-on: ubuntu-latest
+#     concurrency: release
+#     permissions:
+#       id-token: write
+#       contents: write
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
 
-      - name: Install semantic-release-cargo
-        if: needs.get-next-version.outputs.new-release-published == 'true'
-        uses: EricCrosson/install-github-release-binary@v2
-        with:
-          targets: semantic-release-cargo@2
+#       - name: Install semantic-release-cargo
+#         if: needs.get-next-version.outputs.new-release-published == 'true'
+#         uses: EricCrosson/install-github-release-binary@v2
+#         with:
+#           targets: semantic-release-cargo@2
 
-      - name: Prepare semantic-release for Rust
-        if: needs.get-next-version.outputs.new-release-published == 'true'
-        run: semantic-release-cargo prepare ${{ needs.get-next-version.outputs.new-release-version }}
+#       - name: Prepare semantic-release for Rust
+#         if: needs.get-next-version.outputs.new-release-published == 'true'
+#         run: semantic-release-cargo prepare ${{ needs.get-next-version.outputs.new-release-version }}
 
-      - name: Cargo build
-        run: cargo build --release --target=x86_64-unknown-linux-gnu --all-targets
+#       - name: Cargo build
+#         run: cargo build --release --target=x86_64-unknown-linux-gnu --all-targets
       
-      - name: Cargo login
-        run: cargo login ${ secrets.CRATES_IO_TOKEN }} -- registery cargo.io
+#       - name: Cargo login
+#         run: cargo login ${ secrets.CRATES_IO_TOKEN }} -- registery cargo.io
       
-      - name: Get latest tag
-        run: git describe --tags $(git rev-list --tags --max-count=1)
+#       - name: Get latest tag
+#         run: git describe --tags $(git rev-list --tags --max-count=1)

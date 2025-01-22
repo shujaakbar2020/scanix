@@ -9,14 +9,14 @@ jobs:
   semantic-release:
     name: Semantic Release
     runs-on: ubuntu-latest
+    concurrency: release
+    permissions:
+      id-token: write
+      contents: write
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
 
       - name: Python Semantic Release
         uses: python-semantic-release/python-semantic-release@master
