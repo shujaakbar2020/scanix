@@ -18,14 +18,10 @@ jobs:
         with:
           node-version: 18
 
-      - name: Run Semantic Release
-        id: semantic_release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_ACTIONS_SECRET }}
-        run: |
-          npx semantic-release
-          # Extract the new version from semantic-release output
-          echo "NEW_VERSION=$(npx semantic-release --dry-run | grep 'The next release version is' | awk '{print $NF}')" >> $GITHUB_ENV
+      - name: Python Semantic Release
+        uses: python-semantic-release/python-semantic-release@master
+        with:
+          github_token: ${{ secrets.GIT_ACTIONS_SECRET }}
 
   #     - name: Update Cargo.toml Version
   #       id: update_version
