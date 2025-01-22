@@ -29,3 +29,9 @@ jobs:
 
       - name: Cargo build
         run: cargo build --release --target=x86_64-unknown-linux-gnu --all-targets
+      
+      - name: Cargo login
+        run: cargo login ${ secrets.CRATES_IO_TOKEN }} -- registery crates.io
+      
+      - name: Get latest tag
+        run: git describe --tags $(git rev-list --tags --max-count=1)
