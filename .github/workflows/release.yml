@@ -39,14 +39,6 @@ jobs:
         env:
           NEW_VERSION: $NEW_VERSION
 
-      # - name: Commit Updated Cargo.toml
-      #   run: |
-      #     git config user.name ${{ secrets.GIT_USER }}
-      #     git config user.email ${{ secrets.GIT_EMAIL_ADDR }}
-      #     git add Cargo.toml
-      #     git commit -m "version update"
-      #     git push origin main
-
       - name: Set up Rust
         uses: actions-rs/toolchain@v1
         with:
