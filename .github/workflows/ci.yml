@@ -28,10 +28,9 @@ jobs:
       - name: Update Cargo.toml Version
         id: update_version
         run: |
+          NEW_VERSION=$(git describe --tags $(git rev-list --tags --max-count=1))
           sed -i "s/^version = \".*\"/version = \"$NEW_VERSION\"/" Cargo.toml
           cat Cargo.toml
-        env:
-          NEW_VERSION: git describe --tags $(git rev-list --tags --max-count=1)
 
       - name: Commit Updated Cargo.toml
         run: |
