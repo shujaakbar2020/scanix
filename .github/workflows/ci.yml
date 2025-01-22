@@ -50,7 +50,7 @@ jobs:
       - name: Publish Crate
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
-        run: cargo publish --token $CARGO_REGISTRY_TOKEN
+        run: cargo publish --token $CARGO_REGISTRY_TOKEN --allow-dirty
 
   # publish-crate:
   #   name: Publish Crate to crates.io
