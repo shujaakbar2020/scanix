@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.6 (2025-01-22)
+
+### Bug Fixes
+
+- Cleanup on release process
+  ([`eb67f02`](https://github.com/shujaakbar2020/scanix/commit/eb67f027fd4f78157866ef60e4355dfe2e963b20))
+
+
 ## v0.1.5 (2025-01-22)
 
 ### Bug Fixes
