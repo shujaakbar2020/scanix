@@ -41,6 +41,7 @@ jobs:
         run: |
           NEW_VERSION=$(git describe --tags $(git rev-list --tags --max-count=1))
           NEW_VERSION=${NEW_VERSION#v}
+          git pull origin main
           sed -i "s/^version = \".*\"/version = \"$NEW_VERSION\"/" Cargo.toml
           git config user.name ${{ secrets.GIT_USER }}
           git config user.email ${{ secrets.GIT_EMAIL_ADDR }}
