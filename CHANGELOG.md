@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.8 (2025-01-23)
+
+### Bug Fixes
+
+- Release issue resolved
+  ([`b6b3c8d`](https://github.com/shujaakbar2020/scanix/commit/b6b3c8de938c548306ad37b92df6afe40c5266f1))
+
+
 ## v0.1.7 (2025-01-23)
 
 ### Bug Fixes
