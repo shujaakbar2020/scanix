@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.10 (2025-01-23)
+
+### Bug Fixes
+
+- Working on release issue
+  ([`edeedaa`](https://github.com/shujaakbar2020/scanix/commit/edeedaacce01aa9c506dec60404cff4f978b3ac0))
+
+
 ## v0.1.9 (2025-01-23)
 
 ### Bug Fixes
