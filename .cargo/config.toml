@@ -1,0 +1,5 @@
+[registry]
+index = "https://crates.io"
+
+[build]
+target = "x86_64-unknown-linux-gnu"
