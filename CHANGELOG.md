@@ -1,9 +1,23 @@
 # CHANGELOG
 
 
+## v0.2.3 (2025-01-23)
+
+### Bug Fixes
+
+- Issue template
+  ([`8c3360e`](https://github.com/shujaakbar2020/scanix/commit/8c3360ee043e1440b77bbf4a07ba0f5938bd61e9))
+
+- Issue templates
+  ([`f5f79c8`](https://github.com/shujaakbar2020/scanix/commit/f5f79c86068a71ef56a82edc893b569ae4fc3fe8))
+
+
 ## v0.2.2 (2025-01-23)
 
 ### Bug Fixes
+
+- Issue template
+  ([`7441adf`](https://github.com/shujaakbar2020/scanix/commit/7441adfd6d43a82e5c99747a6ca44b2916a94d23))
 
 - Updated cargo configs
   ([`9f474c6`](https://github.com/shujaakbar2020/scanix/commit/9f474c6c292e19f981560835f173d0f5a3dafce6))
