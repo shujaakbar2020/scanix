@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.7 (2025-01-23)
+
+### Bug Fixes
+
+- Cleaning up workflows
+  ([`ea4c7ba`](https://github.com/shujaakbar2020/scanix/commit/ea4c7bad1068f08a56131e7add6f0f956216188a))
+
+
 ## v0.1.6 (2025-01-22)
 
 ### Bug Fixes
