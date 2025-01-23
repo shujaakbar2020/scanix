@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.0 (2025-01-23)
+
+### Features
+
+- Release issue fixed
+  ([`6d788d9`](https://github.com/shujaakbar2020/scanix/commit/6d788d9e88c6b4ba05a579c684ae3b5956b94fa3))
+
+
 ## v0.1.14 (2025-01-23)
 
 ### Bug Fixes
