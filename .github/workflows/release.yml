@@ -44,13 +44,13 @@ jobs:
           sed -i "s/^version = \".*\"/version = \"$NEW_VERSION\"/" Cargo.toml
           git config user.name ${{ secrets.GIT_USER }}
           git config user.email ${{ secrets.GIT_EMAIL_ADDR }}
-          # git add Cargo.toml
-          # if git diff --cached --quiet; then
-          #   echo "No changes to commit."
-          # else
-          #   git commit -m "version update"
-          #   git push origin main
-          # fi
+          git add Cargo.toml
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "version update"
+            git push origin main
+          fi
 
       - name: Set up Rust
         uses: actions-rs/toolchain@v1
