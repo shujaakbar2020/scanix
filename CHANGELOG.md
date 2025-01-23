@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.2 (2025-01-23)
+
+### Bug Fixes
+
+- Updated cargo configs
+  ([`9f474c6`](https://github.com/shujaakbar2020/scanix/commit/9f474c6c292e19f981560835f173d0f5a3dafce6))
+
+
 ## v0.2.1 (2025-01-23)
 
 ### Bug Fixes
