@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.3.0 (2025-01-24)
+
+### Features
+
+- Added boyer moore algo
+  ([`dd975c7`](https://github.com/shujaakbar2020/scanix/commit/dd975c7a9b4570b3114978a174de9cba612db273))
+
+
 ## v0.2.3 (2025-01-23)
 
 ### Bug Fixes
