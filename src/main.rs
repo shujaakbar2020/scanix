@@ -61,6 +61,7 @@ impl BoyerMoore {
     }
 }
 
+#[allow(dead_code)]
 fn search_file_with_regex() {
     let args = App::new("Scanix")
         .version(env!("CARGO_PKG_VERSION"))
@@ -92,6 +93,20 @@ fn search_file_with_regex() {
     }
 }
 
+fn highlight_text(text: &str, pattern: &str, matches: &[usize]) -> String{
+    let mut highlighted_text = String::new();
+    let mut last_idx = 0;
+    for &start in matches {
+        highlighted_text.push_str(&text[last_idx..start]);
+        highlighted_text.push_str("\x1b[31m");
+        highlighted_text.push_str(&text[start..start + pattern.len()]);
+        highlighted_text.push_str("\x1b[0m");
+        last_idx = start + pattern.len();
+    }
+    highlighted_text.push_str(&text[last_idx..]);
+    highlighted_text
+}
+
 fn main() {
     // search_file_with_regex();
 
@@ -118,7 +133,8 @@ fn main() {
         let bm = BoyerMoore::new(pattern.as_bytes());
         let matches = bm.search(text.as_bytes());
         if matches.len() != 0 {
-            println!("{}", text);
+            let highlighted = highlight_text(&text, pattern, &matches);
+            println!("{}", highlighted);
         }
     }
 }
