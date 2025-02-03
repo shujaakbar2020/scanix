@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.4.0 (2025-02-03)
+
+### Features
+
+- Highlight matched pattern
+  ([`5ea242a`](https://github.com/shujaakbar2020/scanix/commit/5ea242a7070a3fe90367c44ca40517d33a22da58))
+
+
 ## v0.3.0 (2025-01-24)
 
 ### Features
