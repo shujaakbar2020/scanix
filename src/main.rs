@@ -4,6 +4,8 @@ use std::io::prelude::*;
 use regex::Regex;
 use clap::{App,Arg};
 
+const PRIME: u64 = 101;
+
 struct BoyerMoore {
     pattern: Vec<u8>,
     bad_char_table: [i32; 256],
@@ -92,6 +94,19 @@ fn search_file_with_regex() {
     }
 }
 
+fn rabin_karp_hash(text: &[u8], len: usize) -> u64 {
+    let mut hash = 0;
+    for &c in text.iter().take(len) {
+        hash = (hash * 256 + c as u64) % PRIME;
+    }
+    hash
+}
+
+fn rabin_karp_rolling_hash(prev_hash: u64, old_char: u8, new_char: u8, m: usize) -> u64 {
+    let old_hash = (prev_hash + PRIME - (old_char as u64 * 256u64.pow((m - 1) as u32)) % PRIME) % PRIME;
+    (old_hash * 256 + new_char as u64) % PRIME
+}
+
 fn highlight_text(text: &str, pattern: &str, matches: &[usize]) -> String{
     let mut highlighted_text = String::new();
     let mut last_idx = 0;
@@ -127,13 +142,39 @@ fn main() {
     let f_ = File::open(file_path).unwrap();
     let reader = BufReader::new(f_);
 
+    let pattern_bytes = pattern.as_bytes();
+    let m = pattern_bytes.len();
+    let pattern_hash = rabin_karp_hash(pattern_bytes, m);
+
+
     for line_ in reader.lines() {
         let text = line_.unwrap();
-        let bm = BoyerMoore::new(pattern.as_bytes());
-        let matches = bm.search(text.as_bytes());
-        if matches.len() != 0 {
-            let highlighted = highlight_text(&text, pattern, &matches);
-            println!("{}", highlighted);
+        let text_bytes = text.as_bytes();
+        let n = text_bytes.len();
+        if n < m {
+            continue;
+        }
+        let mut text_hash = rabin_karp_hash(text_bytes, m);
+        let mut candidate_positions = vec![];
+
+        if text_hash == pattern_hash && &text_bytes[0..m] == pattern_bytes {
+            candidate_positions.push(0);
+        }
+
+        for i in 1..= n - m {
+            text_hash = rabin_karp_rolling_hash(text_hash, text_bytes[i - 1], text_bytes[i + m - 1], m);
+            if text_hash == pattern_hash && &text_bytes[i..i + m] == pattern_bytes {
+                candidate_positions.push(i);
+            }
+        }
+
+        if !candidate_positions.is_empty() {
+            let bm = BoyerMoore::new(pattern_bytes);
+            let matches = bm.search(text_bytes);
+            if !matches.is_empty() {
+                let highlighted = highlight_text(&text, pattern, &matches);
+                println!("{}", highlighted);
+            }
         }
     }
 }
