@@ -1,9 +1,8 @@
 use std::fs::File;
-use std::io::{BufReader, Result};
+use std::io::{BufReader};
 use std::io::prelude::*;
 use regex::Regex;
 use clap::{App,Arg};
-use std::collections::HashMap;
 
 struct BoyerMoore {
     pattern: Vec<u8>,
