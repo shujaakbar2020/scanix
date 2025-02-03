@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.4.1 (2025-02-03)
+
+### Bug Fixes
+
+- Removed libraries
+  ([`5257212`](https://github.com/shujaakbar2020/scanix/commit/5257212be17fcfa5d2a36c740b7718fbc94007e5))
+
+
 ## v0.4.0 (2025-02-03)
 
 ### Features
