@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.1 (2025-02-03)
+
+### Bug Fixes
+
+- Added pr template
+  ([`89909af`](https://github.com/shujaakbar2020/scanix/commit/89909af67336665b28eeb3079750282361225d33))
+
+
 ## v0.5.0 (2025-02-03)
 
 ### Features
