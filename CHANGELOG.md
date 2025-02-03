@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.0 (2025-02-03)
+
+### Features
+
+- Added rabin karp
+  ([`42519a2`](https://github.com/shujaakbar2020/scanix/commit/42519a28d5ca082d39bdbe7358331af7bbe57bd7))
+
+
 ## v0.4.1 (2025-02-03)
 
 ### Bug Fixes
